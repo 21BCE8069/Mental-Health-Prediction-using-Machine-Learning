@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Mental Health Predictor</title>
+</head>
+<style>
+h1 {text-align: center;}
+</style>
+<body style="background-color: lightpink;">
+        <h1 style="font-family:verdana"> Mental Health Prediction </h1>
+        <h4 style="font-family:'Courier New'"> Predict the probability whether a person requires Mental Treatment </h4>
+      <div class="row">
+        
+        <form action='/predict' method="post" onsubmit="return validateForm()" class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <label for="age"><b>Enter Age</b></label>
+              <br>
+              <!-- Use type="text" with inputmode="numeric" to allow numeric input without arrows -->
+              <input placeholder="Age" name="Age" id="age" type="text" inputmode="numeric" pattern="[0-9]*" class="validate" required> </br></br>
+            </div>
+            <div class="input-field col s6">
+              <label for="gender"><b>Enter Gender (0 for male, 1 for female)</b></label>
+              <br>
+              <!-- Use type="text" with inputmode="numeric" to allow numeric input without arrows -->
+              <input placeholder="Gender" name="Gender" id="gender" type="text" inputmode="numeric" pattern="[0-1]*" class="validate" required> </br></br>
+            </div>
+            <div class="input-field col s6">
+              <label for="family_history"><b>Enter Family History (0 for No, 1 for Yes)</b></label>
+              <br>
+              <!-- Use type="text" with inputmode="numeric" to allow numeric input without arrows -->
+              <input placeholder="Family History" name="Family_history" id="family_history" type="text" inputmode="numeric" pattern="[0-1]*" class="validate" required> </br></br>
+            </div>
+            <div class="input-field col s6">
+              <label for="benefits"><b>Enter Benefits (0 for No, 1 for Yes)</b></label>
+              <br>
+              <!-- Use type="text" with inputmode="numeric" to allow numeric input without arrows -->
+              <input placeholder="Benefits" name="Benefits" id="benefits" type="text" inputmode="numeric" pattern="[0-1]*" class="validate" required> </br></br>
+            </div>
+            <div class="input-field col s6">
+              <label for="care_options"><b>Enter Care Options (0 for No, 1 for Yes)</b></label>
+              <br>
+              <!-- Use type="text" with inputmode="numeric" to allow numeric input without arrows -->
+              <input placeholder="Care Options" name="Care_options" id="care_options" type="text" inputmode="numeric" pattern="[0-1]*" class="validate" required> </br></br>
+            </div>
+            <div class="input-field col s6">
+              <label for="anonymity"><b>Enter Anonymity (0 for No, 1 for Yes)</b></label>
+              <br>
+              <!-- Use type="text" with inputmode="numeric" to allow numeric input without arrows -->
+              <input placeholder="Anonymity" name="Anonymity" id="anonymity" type="text" inputmode="numeric" pattern="[0-1]*" class="validate" required> </br></br>
+            </div>
+            <div class="input-field col s6">
+              <label for="leave"><b>Enter Leave (0 for No, 1 for Yes)</b></label>
+              <br>
+              <!-- Use type="text" with inputmode="numeric" to allow numeric input without arrows -->
+              <input placeholder="Leave" name="Leave" id="leave" type="text" inputmode="numeric" pattern="[0-1]*" class="validate" required> </br></br>
+            </div>
+            <div class="input-field col s6">
+              <label for="work_interfere"><b>Enter Work Interfere (0 for No, 1 for Yes)</b></label>
+              <br>
+              <!-- Use type="text" with inputmode="numeric" to allow numeric input without arrows -->
+              <input placeholder="Work Interfere" name="Work_interfere" id="work_interfere" type="text" inputmode="numeric" pattern="[0-1]*" class="validate" required> </br></br>
+            </div>
+            <!-- Add other input fields as needed -->
+          </div>
+          <div class="row center">
+            <button type="submit" class="btn-large waves-effect waves-light orange">Predict Probability</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <script>
+    function validateForm() {
+      // Get the values entered in the Age, Gender, Family History, Benefits, Care Options, Anonymity, Leave, and Work Interfere fields
+      var ageValue = document.getElementById("age").value;
+      var genderValue = document.getElementById("gender").value;
+      var familyHistoryValue = document.getElementById("family_history").value;
+      var benefitsValue = document.getElementById("benefits").value;
+      var careOptionsValue = document.getElementById("care_options").value;
+      var anonymityValue = document.getElementById("anonymity").value;
+      var leaveValue = document.getElementById("leave").value;
+      var workInterfereValue = document.getElementById("work_interfere").value;
+
+      // Check if the entered values are valid
+      if (
+        isNaN(ageValue) ||
+        isNaN(genderValue) ||
+        isNaN(familyHistoryValue) ||
+        isNaN(benefitsValue) ||
+        isNaN(careOptionsValue) ||
+        isNaN(anonymityValue) ||
+        isNaN(leaveValue) ||
+        isNaN(workInterfereValue) ||
+        ![0, 1].includes(parseInt(genderValue)) ||
+        ![0, 1].includes(parseInt(familyHistoryValue)) ||
+        ![0, 1].includes(parseInt(benefitsValue)) ||
+        ![0, 1].includes(parseInt(careOptionsValue)) ||
+        ![0, 1].includes(parseInt(anonymityValue)) ||
+        ![0, 1].includes(parseInt(leaveValue)) ||
+        ![0, 1].includes(parseInt(workInterfereValue))
+      ) {
+        alert("Please enter valid values for age (numeric value only), gender (0 for male, 1 for female), family history (0 for No, 1 for Yes), benefits (0 for No, 1 for Yes), care options (0 for No, 1 for Yes), anonymity (0 for No, 1 for Yes), leave (0 for No, 1 for Yes), and work interfere (0 for No, 1 for Yes).");
+        return false;
+      }
+
+      // Continue with form submission
+      return true;
+    }
+     document.querySelector("form").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+      if (validateForm()) {
+        redirectToOutputPage();
+      }
+    });
+
+    function redirectToOutputPage() {
+      window.location.href = 'output.html';
+    }
+  </script>
+</body>
+
+</html>

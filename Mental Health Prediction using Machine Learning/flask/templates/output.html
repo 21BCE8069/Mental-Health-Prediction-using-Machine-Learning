@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Result</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: lightpink;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .result-message {
+      font-size: 70px;
+      color: brown;
+      margin-bottom: 20px;
+    }
+     h2 {
+      text-align: right;
+      color: black;
+      font-family: verdana;
+      font-size: 80%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: 10px;
+
+    }
+    
+    .button-container {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: darkblue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Mental Health Result</h1>
+  <h2> K S H V SAI HARI KRISHNA (21BCE8069) </br> SIDAGAM GANGA ROSHITHA (21BCE8691) </br> DEVARASETTY HARSHA KUNDAN (21BCE7587) </br> ABHIRAM CHELAMALLA     (21BCE8707) </br> </h2>
+  
+  <div class="button-container">
+    <button class="button" onclick="goToHome()">Home</button>
+    <button class="button" onclick="goToPredict()">Predict</button>
+  </div>
+
+  <script>
+    function goToHome() {
+      // Redirect to the home page (replace 'home.html' with the actual file name)
+      window.location.href = 'home.html';
+    }
+
+    function goToPredict() {
+      // Redirect to the predict page (replace 'predict.html' with the actual file name)
+      window.location.href = 'predict.html';
+    }
+  </script>
+</body>
+
+</html>
